@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import Dashboard from './pages/Dashboard';
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       </nav>
       <div className="p-4">
         <Routes>
-          <Route path="/" element={<h1 className="text-3xl font-bold text-gray-800">Dashboard Page</h1>} />
+          <Route path="/" element={<Dashboard />} />
           <Route path="/add-task" element={<h1 className="text-3xl font-bold text-gray-800">Add Task Page</h1>} />
         </Routes>
       </div>
