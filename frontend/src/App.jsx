@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
+import AddTask from './pages/AddTask';
+import EditTask from './pages/EditTask';
 
 function App() {
   return (
@@ -13,7 +15,8 @@ function App() {
       <div className="p-4">
         <Routes>
           <Route path="/" element={<Dashboard />} />
-          <Route path="/add-task" element={<h1 className="text-3xl font-bold text-gray-800">Add Task Page</h1>} />
+          <Route path="/add-task" element={<AddTask />} />
+          <Route path="/edit-task/:id" element={<EditTask />} />
         </Routes>
       </div>
     </Router>
