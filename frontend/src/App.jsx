@@ -1,18 +1,23 @@
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Dashboard from "./pages/Dashboard";
+import AddTask from "./pages/AddTask";
+import EditTask from "./pages/EditTask";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <Router>
-      <nav className="bg-gray-800 p-4 text-white">
-        <ul className="flex space-x-4">
-          <li><Link to="/" className="hover:text-gray-300">Dashboard</Link></li>
-          <li><Link to="/add-task" className="hover:text-gray-300">Add Task</Link></li>
-        </ul>
-      </nav>
-      <div className="p-4">
+      <Navbar />
+      <div className="p-4 max-w-4xl mx-auto">
         <Routes>
-          <Route path="/" element={<h1 className="text-3xl font-bold text-gray-800">Dashboard Page</h1>} />
-          <Route path="/add-task" element={<h1 className="text-3xl font-bold text-gray-800">Add Task Page</h1>} />
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/add" element={<AddTask />} />
+          <Route path="/edit/:id" element={<EditTask />} />
         </Routes>
       </div>
     </Router>
