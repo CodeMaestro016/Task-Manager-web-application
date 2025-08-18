@@ -74,9 +74,7 @@ function Dashboard() {
                 <td className="border p-2 flex space-x-2">
                   <Link to={`/edit-task/${task._id}`} className="bg-yellow-500 text-white px-2 py-1 rounded hover:bg-yellow-600">Edit</Link>
                   <button onClick={() => handleDelete(task._id)} className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">Delete</button>
-                  <button onClick={() => handleToggleStatus(task._id, task.status)} className="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600">
-                    {task.status === 'Pending' ? 'Mark Completed' : 'Mark Pending'}
-                  </button>
+                  
                 </td>
               </tr>
             ))}
