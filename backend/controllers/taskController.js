@@ -23,15 +23,53 @@ export const createTask = async (req, res) => {
   }
 };
 
-// Get all tasks for logged-in user
+// Get all tasks for logged-in user with search, filter, pagination, sorting
 export const getTasks = async (req, res) => {
   try {
-    const tasks = await Task.find({ user: req.user.id });
-    res.json(tasks);
+    const { search, priority, status, sort, page = 1, limit = 5 } = req.query;
+
+    const query = { user: req.user.id };
+
+    // Search by title or description
+    if (search) {
+      query.$or = [
+        { title: { $regex: search, $options: "i" } },
+        { description: { $regex: search, $options: "i" } },
+      ];
+    }
+
+    // Filter by priority
+    if (priority) query.priority = priority;
+
+    // Filter by status
+    if (status) query.status = status;
+
+    // Sorting
+    let sortOption = {};
+    if (sort === "dueDate") sortOption.dueDate = 1; // ascending
+    if (sort === "priority") sortOption.priority = 1;
+
+    // Pagination
+    const skip = (page - 1) * limit;
+
+    const tasks = await Task.find(query)
+      .sort(sortOption)
+      .skip(skip)
+      .limit(Number(limit));
+
+    const total = await Task.countDocuments(query);
+
+    res.json({
+      tasks,
+      total,
+      page: Number(page),
+      pages: Math.ceil(total / limit),
+    });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
 };
+
 
 // Get single task
 export const getTaskById = async (req, res) => {
