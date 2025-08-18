@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import AddTask from "./pages/AddTask";
 import EditTask from "./pages/EditTask";
 import Navbar from "./components/Navbar";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
       <Navbar />
       <div className="p-4 max-w-4xl mx-auto">
         <Routes>
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/add" element={<AddTask />} />
