@@ -17,7 +17,7 @@ function AddTask() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await api.post("/tasks", form);
-    navigate("/");
+    navigate("/dashboard");
   };
 
   return (
