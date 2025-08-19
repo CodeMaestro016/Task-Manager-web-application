@@ -3,9 +3,9 @@
 A full-stack **Task Management Application** with authentication, task CRUD operations, search, filter, sort, and pagination.
 
 - **Frontend:** React (Vite) + Tailwind CSS + Axios + React Router  
-- **Backend:** Node.js + Express + JWT Auth + Joi Validation  
+- **Backend:** Node.js + Express + JWT Auth + express-validator 
 - **Database:** MongoDB Atlas  
-- **Deployment:** Frontend on Vercel, Backend on Railway/Fly.io  
+- **Deployment:** Frontend on Vercel, Backend on Railway  
 
 ---
 
