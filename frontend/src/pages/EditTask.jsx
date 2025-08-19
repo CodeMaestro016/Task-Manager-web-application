@@ -32,7 +32,7 @@ function EditTask() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await api.put(`/tasks/${id}`, form);
-    navigate("/");
+    navigate("/dashboard");
   };
 
   return (
