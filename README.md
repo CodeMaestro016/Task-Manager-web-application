@@ -132,7 +132,7 @@ Delete a task.
 ``` 
 Frontend (Vercel)
 
-https://task-manager-web-application-cima-awuxcr9nv.vercel.app/
+https://task-manager-web-application-cima.vercel.app/
 ```
 
 
